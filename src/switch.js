@@ -1,44 +1,86 @@
 document.querySelector('#header').innerHTML = "estoy leyendo el documento switch "
-var fruta 
+var dia
 var mensaje 
-var userInput = prompt("ingrese el numero de la fruta")
+var userInput = prompt("ingrese el numero del dia")
 
 
 
-function jugo_de_fresas() {
+function dia_lunes() {
+    mensaje = "hoy es lunes"
     document.querySelector('#header').innerHTML = mensaje;
     document.querySelector('#header').style.color  = "red"; 
   }
 
-  function jugo_de_naranja() {
-    mensaje = "batir naranjas y mandarinas"
+  function dia_martes() {
+    mensaje = "hoy es martes"
     document.querySelector('#header').innerHTML = mensaje;
     document.querySelector('#header').style.color  = "purple"; 
   }
 
-  function servir_vaso_de_agua() {
-    mensaje = "servir vaso de agua"
+  function dia_miercoles() {
+    mensaje = "hoy es miercoles"
     document.querySelector('#header').innerHTML = mensaje;
     document.querySelector('#header').style.color  = "green";
   }
 
+  function dia_jueves() {
+    mensaje = "hoy es jueves"
+    document.querySelector('#header').innerHTML = mensaje;
+    document.querySelector('#header').style.color  = "green";
+  }
 
-fruta = parseInt(userInput)// con pasrseInt se convierte a entero 
+  function dia_viernes() {
+    mensaje = "hoy es viernes"
+    document.querySelector('#header').innerHTML = mensaje;
+    document.querySelector('#header').style.color  = "green";
+  }
 
-switch(fruta){
+  function dia_sabado() {
+    mensaje = "hoy es sabado"
+    document.querySelector('#header').innerHTML = mensaje;
+    document.querySelector('#header').style.color  = "green";
+  }
+
+  function dia_domingo() {
+    mensaje = "hoy es domingo"
+    document.querySelector('#header').innerHTML = mensaje;
+    document.querySelector('#header').style.color  = "green";
+  }
+
+function dia_no_coincide() {
+  mensaje = "dia invalido"
+    document.querySelector('#header').innerHTML = mensaje;
+    document.querySelector('#header').style.color  = "green";
+  }
+dia = parseInt(userInput)// con pasrseInt se convierte a entero 
+
+switch(dia){
     case 1 :
-        mensaje = "batir fresas"
-        jugo_de_fresas()
+        mensaje = "es lunes"
+        dia_lunes()
     break
     case 2 :
+        dia_martes()
+    break
     case 3 :
-        jugo_de_naranja()
+        dia_miercoles()
+    break
+    case 4 :
+        dia_jueves()
+    break
+    case 5 :
+        dia_viernes()
+    break
+    case 6 :
+        dia_sabado()
+    break
+    case 7 :
+        dia_domingo()
     break
     default:
-      servir_vaso_de_agua()
+      dia_no_coincide()
     break
 }
-
 
 
 
