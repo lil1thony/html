@@ -1,7 +1,6 @@
-mensaje = "estoy leyendo el documento whileSwitch.js"
-var mensaje
-var elemnto = document.querySelector('#header')
-elemnto.innerHTML = mensaje
+document.querySelector('#header').innerHTML = "estoy leyendo el documento dowhile"
+
+
 
 var inicio = true
 
@@ -31,9 +30,12 @@ function division_de_numeros() {
     alert(parseInt(numero1) / parseInt(numero2))
 
 }
+var i = 0
+do {
 
+    i++
+    console.log(i)
 
-while (inicio == true) {
     var respuesta = prompt(" 1. suma\n2. Resta\n3. multiplicacion\n4. division\n5. finalizar ")
 
     switch (parseInt(respuesta)) {
@@ -50,78 +52,12 @@ while (inicio == true) {
             division_de_numeros()
             break
         case 5:
-            var inicio = false
+            var i = 5
             break
 
 
 
     }
 
-}//fin while
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+} while (i < 5)
