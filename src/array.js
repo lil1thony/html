@@ -1,4 +1,4 @@
-document.querySelector('#header').innerHTML = "estoy leyendo el documento array" 
+document.querySelector('#header').innerHTML = "tony gay" 
 
 var cesta = ["fresas", "pera", "cereza"]
 
