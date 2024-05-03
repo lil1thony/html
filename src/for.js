@@ -11,5 +11,10 @@ for (let index1 = 1; index1 <=10; index1++) {
 }
 
 
+var arreglo = new array (10)
 
+for (let i= 0; i < arreglo.length; i++ ) {
+
+}
+console.log(arreglo)
 
