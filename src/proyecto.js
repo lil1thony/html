@@ -40,22 +40,23 @@ function sumaValor(aumentarArreglo) {
     arreglo.length = arreglo.length; +aumentarArreglo
 }
 
-function sumarImpares(){
-    let totalImpares = 0 
-    for(let i = 0; i < arreglo.length; i++){
-        if( (arreglo[i] % 2) != 0 ){
-             totalImpares = totalImpares + arreglo[i]
+function sumaImpares() {
+    let totalImpares = 0
+    for (let i = 0; i < arreglo.length; i++) {
+
+        if ((arreglo[i] % 2) != 0) {
+            totalImpares = totalImpares + arreglo[i]
         }
     }
 
     return totalImpares
-} 
+}
 
-function mayorArreglo(){
-    let valormayor = 0 
-    for(let i = 0; i < arreglo.length; i++){
+function mayorArreglo() {
+    let valormayor = 0
+    for (let i = 0; i < arreglo.length; i++) {
 
-        if(arreglo[i] > valormayor){
+        if (arreglo[i] > valormayor) {
 
             valormayor = arreglo[i]
         }
@@ -63,30 +64,103 @@ function mayorArreglo(){
     }
 }
 
-function mayorDiferencia(){
+function mayorDiferencia() {
     let valorDiferenciaMayor = 0
     let diferencia = 0
-    for(let i = 0; i<= arreglo.length; i++){
+    for (let i = 0; i <= arreglo.length; i++) {
         //Sacar La Diferencia 
-        diferencia = arreglo[i] - arreglo[i+1]
-        
+        diferencia = arreglo[i] - arreglo[i + 1]
+
         //convertir en absoluto
-        if(diferencia < 0){
-            diferencia = diferencia*-1
+        if (diferencia < 0) {
+            diferencia = diferencia * -1
         }
-        
+
         //acà preguntamos si la diferencia entre las dos celdas es mayor al valor de diferencia que guardamos
         //si es verdadero, guardamos esa diferencia
         //si es flso, no hace nada y sigue teneiendo el mismpo valorDiferenciaMayor que se habìa guardado
-        if(diferencia > valorDiferenciaMayor){
+        if (diferencia > valorDiferenciaMayor) {
             valorDiferenciaMayor = diferencia
         }
     }
     return valorDiferenciaMayor
 }
 
+function encontrarElemento(valorNumero) {
+    let encontroNumero = false;
 
+    for (let i = 0; i < arreglo.length; i++) {
 
+        if (valorNumero == arreglo[i]) {
+            encontroNumero = true
+        }
+    }
+
+    return encontroNumero
+
+}
+
+function posicionElemento(valorNumero) {
+    let encontroNumero = false;
+    let posicion = -1;
+    for (let i = 0; i < arreglo.length; i++) {
+
+        if (valorNumero == arreglo[i]) {
+            encontroNumero = true
+            posicion = i;
+            i = arreglo.length;
+        }
+    }
+
+    //return
+    if (encontroNumero) {
+        return posicion
+    } else {
+        return -1
+    }
+
+}
+
+function invertirArreglo() {
+
+    let auxArregloInvertido = []
+    auxArregloInvertido.length = arreglo.length
+    let auxPosicion = 0
+    for (let i = arreglo.length; i >= 0; i--) {
+        auxArregloInvertido[auxPosicion] = arreglo[i];
+        auxPosicion++;
+    }
+    arreglo = auxArregloInvertido
+}
+
+function insertarElemento(posicion, valor) {
+    //rellenar el auxiliar arreglo
+    let auxArreglo = []
+    auxArreglo.length = arreglo.length
+    for (let i = 0; i < arreglo.length - 1; i++) {
+        auxArreglo[i] = arreglo[i]
+    }
+    for (let i = posicion; i < arreglo.length - 1; i++) {
+        if (i == posicion) {
+            arreglo[i] = valor
+            arreglo[i + 1] = auxArreglo[i]
+        } else {
+            arreglo[i + 1] = auxArreglo[i]
+        }
+    }
+
+}
+
+function mostraHileraArreglo() {
+
+    for (let i = 0; i < arreglo.length; i++) {
+        console.log("posición: " + i + " valor: " + arreglo[i])
+    }
+}
+
+function finalizarAplicacion() {
+    finalizar = true
+}
 
 
 
@@ -117,10 +191,29 @@ do {
             console.log("el valor absoluto mayor entre dos celdas consecutivas es:" + mayorDiferencia())
             break;
         case 8://10
-            let numeroConsulta = parseInt(prompt("¿que nùmero deseas bus"))
+            let numeroConsulta = parseInt(prompt("¿que nùmero deseas buscar en el arreglo?"))
+            console.log("el resultado de la búsqueda fue: " + posicionElemento(numeroConsulta))
             break;
-        
+        case 9://10
+            let numeroConsultaPosicion = parseInt(prompt("¿que nùmero deseas buscar en el arreglo para que retorne la posicion?"))
+            console.log("el resultado de la búsqueda fue: " + posicionElemento(numeroConsultaPosicion))
+            break;
+        case 10://11
+            invertirArreglo()
+            console.log("el arreglo fue invertido con éxito")
+            break;
+        case 11://12
+            let posicion = parseInt(prompt("¿que posicion desea sustituir?"))
+            let valor = parseInt(prompt("¿que valor deseas asignar?"))
+            insertarElemento
+            break;
+        case 12://13
+            mostraHileraArreglo()
+            break;
+        case 13://14
+            finalizarAplicacion()
+            break;
     }
 
 
-} while (opcion != 0)
+} while (opcion != 13)
